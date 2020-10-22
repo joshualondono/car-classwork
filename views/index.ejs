@@ -1,11 +1,38 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title><%= title %></title>
-    <link rel='stylesheet' href='/stylesheets/style.css' />
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add A car</title>
   </head>
   <body>
-    <h1><%= title %></h1>
-    <p>Welcome to <%= title %></p>
+    <h1>Add A car:</h1>
+    <form action="/cars/add-car" method="POST">
+      <div>
+        <label for="car">car:</label>
+        <input type="text" id="car" name="car" />
+      </div>
+      <div>
+        <label for="meaning">type:</label>
+        <textarea type="text" id="meaning" name="meaning"></textarea><br />
+      </div>
+      <button type="submit">Add car</button>
+    </form>
+
+    <!-- <h1>Car List</h1>
+    <%if(carsList.length){ carsList.forEach(element => { %>
+    <p>
+      <a href="/cars/single-car/<%= element.id %>"><%= element.car %> </a>
+    </p>
+    <% })}else{ %>
+    <h1>No Cars Found</h1>
+    <% } %> -->
+
+    <button>
+      <a style="color: gray; text-decoration: none" href="/cars/add-car"
+        >Add A Car</a
+      >
+    </button>
+
   </body>
 </html>
