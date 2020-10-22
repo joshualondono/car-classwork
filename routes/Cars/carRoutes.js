@@ -21,7 +21,7 @@ router.post('/add-car', (req, res) => {
           newCar
             .save()
             .then(() => {
-              return res.redirect('/cars/get-cars');
+              return res.redirect('/');
               // return res.status(200).json({ carCreated });
             })
             .catch((err) => {

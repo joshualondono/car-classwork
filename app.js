@@ -40,7 +40,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 //route bindings
 app.use('/cars', indexRouter);
 app.use('/cars/add-car', carsRouter);
-app.use('/cars/get-car', carsRouter);
+//app.use('/cars/get-car', carsRouter);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
