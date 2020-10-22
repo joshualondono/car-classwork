@@ -1,13 +1,30 @@
+//default imports 
 const createError = require('http-errors');
 const express = require('express');
 const path = require('path');
 const cookieParser = require('cookie-parser');
 const logger = require('morgan');
 
+//database imports
+const mongoose = require('mongoose');
+require('dotenv').config();
+
+//routes
 const indexRouter = require('./routes/index');
 const usersRouter = require('./routes/users');
 
 const app = express();
+
+//database binding
+mongoose
+  .connect(process.env.MONGODB_URI, {
+    useNewUrlParser: true,
+    useUnifiedTopology: true,
+    useCreateIndex: true,
+    useFindAndModify: false
+  })
+  .then(() => console.log('MongoDB Connected'))
+  .catch((err) => console.log(`MongoDB Error: ${err}`));
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
